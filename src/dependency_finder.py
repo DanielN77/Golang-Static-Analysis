@@ -1,15 +1,6 @@
 import subprocess
 import json
 
-cmd = ["go", "list", "-m", "-json", "all"]
-
-process = subprocess.Popen(
-    cmd,
-    stdout=subprocess.PIPE,
-    stderr=subprocess.PIPE,
-    cwd="/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/example_project",
-    text=True,
-)
 
 # Continuous parsing of json objects
 def parse_json(json_string):
@@ -24,11 +15,24 @@ def parse_json(json_string):
         obj, last_index = decoder.raw_decode(json_string, i)
         yield obj
         i = last_index
-        
-def main():
+
+def get_dependencies(path="/"):
+    cmd = ["go", "list", "-m", "-json", "all"]
+
+    process = subprocess.Popen(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        cwd=path,
+        text=True,
+    )
     stdout, stderr = process.communicate()
-    for dep in parse_json(stdout):
-        print(dep)
+    for dependency in parse_json(stdout):
+        yield dependency 
+
+def main():
+    for line in get_dependencies("../example_project"):
+        print(line)
 
 if __name__ == '__main__':
     main()
