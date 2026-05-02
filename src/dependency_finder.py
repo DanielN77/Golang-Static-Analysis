@@ -1,6 +1,6 @@
 import subprocess
 import json
-
+import os
 
 # Continuous parsing of json objects
 def parse_json(json_string):
@@ -19,14 +19,34 @@ def parse_json(json_string):
 def get_dependencies(path="/"):
     cmd = ["go", "list", "-m", "-json", "all"]
 
-    process = subprocess.Popen(
-        cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        cwd=path,
-        text=True,
-    )
+    if not os.path.isdir(path):
+        raise FileNotFoundError(f"Directory not found: {path}")
+
+    try:
+        process = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            cwd=path,
+            text=True,
+        )
+    except FileNotFoundError:
+        raise RuntimeError("The 'go' command was not found")
+    except PermissionError as e:
+        raise RuntimeError(f"Permission denied when trying to run 'go' in {path}: {e}")
+    except Exception as e:
+        raise RuntimeError(f"Failed to start 'go list' subprocess: {e}")
+    
     stdout, stderr = process.communicate()
+
+    if process.returncode != 0:
+        raise subprocess.CalledProcessError(
+            process.returncode,
+            cmd,
+            stdout,
+            stderr
+        )
+    
     for dependency in parse_json(stdout):
         yield dependency 
 
