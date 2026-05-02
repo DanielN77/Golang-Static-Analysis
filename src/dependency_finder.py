@@ -16,7 +16,7 @@ def parse_json(json_string):
         yield obj
         i = last_index
 
-def get_dependencies(path="/"):
+def get_dependencies(path="."):
     cmd = ["go", "list", "-m", "-json", "all"]
 
     if not os.path.isdir(path):
@@ -51,7 +51,7 @@ def get_dependencies(path="/"):
         yield dependency 
 
 def main():
-    for line in get_dependencies("../example_project"):
+    for line in get_dependencies("../examples/vulnerable_project"):
         print(line)
 
 if __name__ == '__main__':
