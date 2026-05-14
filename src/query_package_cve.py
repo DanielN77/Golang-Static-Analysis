@@ -17,7 +17,7 @@ PACKAGE_CVE_JSON = get('https://vuln.go.dev/index/modules.json').json()
 # If a version patch number is missing, or is an unrecognized format, default to this
 DEFAULT_TO_VULNERABLE = False
 PACKAGE_CVE_MISSING_PATCH_VERSION = f'''A vulnerability is missing a patch version or has an unrecognized version format. 
-        The vulnerability could still exist, defaulting to {'NOT ' if DEFAULT_TO_VULNERABLE else ''}VULNERABLE!'''
+        The vulnerability could still exist, defaulting to {'NOT ' if not DEFAULT_TO_VULNERABLE else ''}VULNERABLE!'''
 
 PATH = 'path'
 VULNS = 'vulns'
