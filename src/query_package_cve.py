@@ -1,7 +1,7 @@
 # DESCRIPTION
 # This file contains functions surrounding the querying of CVEs of Golang packages.
-# 
-#
+# The documentation of the database can be found at https://go.dev/doc/security/vuln/database.
+# For the structure of the data, check out https://ossf.github.io/osv-schema
 #
 
 # EXAMPLE USAGE OF FUNCTIONS:
@@ -14,7 +14,9 @@ from re import search
 
 import semver
 import logging
+import json
 
+# Keys 
 PATH        = 'path'
 VULNS       = 'vulns'
 FIXED       = 'fixed'
@@ -31,13 +33,27 @@ FIXED           = 'fixed'
 LAST_AFFECTED   = 'last_affected'
 LIMIT           = 'limit'
 
-PACKAGE_CVE_JSON = get('https://vuln.go.dev/index/modules.json').json()
+# Paths to required files
+MODULES_PATH = './data/modules.json'
+CVE_PATH = './data/ID'
+
+
+def get_dict_by_cve(cve_id: str) -> dict:     
+    with open(f'{CVE_PATH}/{cve_id}.json', 'r') as file:
+        return json.load(file)
+    
+def get_modules():
+    with open(MODULES_PATH, 'r') as file:
+        return json.load(file)
+
+PACKAGE_CVE_JSON = get_modules()
 
 # If a version patch number is missing, or is an unrecognized format, default to this
 DEFAULT_TO_VULNERABLE = False
+
 PACKAGE_CVE_MISSING_PATCH_VERSION = f'''A vulnerability is missing a patch version or has an unrecognized version format. 
         The vulnerability could still exist, defaulting to {'NOT ' if not DEFAULT_TO_VULNERABLE else ''}VULNERABLE!'''
-
+OPEN_FILE_ERROR = f'Couldn\'t open a CVE file, defaulting to {'NOT ' if not DEFAULT_TO_VULNERABLE else ''} VULNERABLE!' 
 
 
 # Returns a list of CVEs, if it's empty, then there were no CVEs to be found
@@ -72,7 +88,14 @@ def query_package_for_cve(package_name: str, package_version: str) -> list:
 # package_version: str  -- Version of the possibly affected package
 def version_is_not_patched(vulnerability: dict, package_name: str, package_version: str) -> bool:
     cve_identifier = vulnerability.get(ID)
-    cve_info = get(f'https://vuln.go.dev/ID/{cve_identifier}.json').json()
+
+    try: cve_info = get_dict_by_cve(cve_identifier)
+    except: 
+        warning_msg = OPEN_FILE_ERROR
+        if (cve_identifier is not None): warning_msg += f' ({cve_identifier})'
+
+        logging.warning(warning_msg)
+        return DEFAULT_TO_VULNERABLE
 
     affected = next(filter(
                         lambda package: package.get(PACKAGE).get(NAME) == package_name, 
