@@ -22,8 +22,8 @@ ID          = 'id'
 AFFECTED    = 'affected'
 PACKAGE     = 'package'
 NAME        = 'name'
-RANGES      = 'RANGES'
-EVENTS      = 'EVENTS'
+RANGES      = 'ranges'
+EVENTS      = 'events'
 
 # Different types 
 INTRODUCED      = 'introduced'
@@ -46,21 +46,20 @@ PACKAGE_CVE_MISSING_PATCH_VERSION = f'''A vulnerability is missing a patch versi
 # package_name: str     -- Name of the possibly affected package
 # package_version: str  -- Version of the possibly affected package
 def query_package_for_cve(package_name: str, package_version: str) -> list:
-    entry_returned = filter(
+    entry_returned = next(filter(
                         lambda entry: package_name == entry.get(PATH),
                         PACKAGE_CVE_JSON
-                    )   
+                    ), None)
     
-    # if there was no entry, the __next__() will throw
-    try: entry_returned = entry_returned.__next__()
-    except: return []
+    # if there was no entry, there was no exploit to bgein with
+    if (entry_returned is None): return []
 
-    unpatched_vulns = filter(
+    unpatched_vulns = list(filter(
                         lambda vuln: version_is_not_patched(vuln, package_name, package_version), 
                         entry_returned.get(VULNS)
-                    )
-    
-    return list(unpatched_vulns)
+                    ))
+
+    return list(map(lambda vuln: vuln.get(ID), unpatched_vulns))
 
 # Returns true if the package version is below the patched version.
 # In the case that the version is missing or is using an unrecognized format,
@@ -75,33 +74,40 @@ def version_is_not_patched(vulnerability: dict, package_name: str, package_versi
     cve_identifier = vulnerability.get(ID)
     cve_info = get(f'https://vuln.go.dev/ID/{cve_identifier}.json').json()
 
-    try:
-        affected = filter(
-                            lambda package: package.get(NAME) == package_name, 
-                            cve_info.get[AFFECTED]
-                        ).__next__()
+    affected = next(filter(
+                        lambda package: package.get(PACKAGE).get(NAME) == package_name, 
+                        cve_info.get(AFFECTED)
+                    ), None)
 
-        package_version = semver.Version.parse(package_version)
+    package_version = semver.Version.parse(package_version)
+
+    try:
         vulnerable = False
         # I <3 nesting
         for range in affected.get(RANGES):
             for event in range.get(EVENTS):
                 if introduced_version := event.get(INTRODUCED):
+                    if (introduced_version == '0'): introduced_version = '0.0.0'
+
                     introduced_version = semver.Version.parse(introduced_version)
                     if package_version >= introduced_version: vulnerable = True
 
                 elif fixed_version := event.get(FIXED):
+                    if (fixed_version == '0'): fixed_version_version = '0.0.0'
+
                     fixed_version = semver.Version.parse(fixed_version)
                     if package_version >= fixed_version: vulnerable = False
 
                 elif (last_affected_version := event.get(LAST_AFFECTED)):
-                    last_affected_version = semver.Version.parse(last_affected_version)
+                    if (last_affected_version == '0'): last_affected_version = '0.0.0'
 
+                    last_affected_version = semver.Version.parse(last_affected_version)
                     if package_version > last_affected_version: vulnerable = False
 
                 elif limit_version := event.get(LIMIT):
-                    limit_version = semver.Version.parse(limit_version)
+                    if (limit_version == '0'): limit_version = '0.0.0'
 
+                    limit_version = semver.Version.parse(limit_version)
                     if (package_version >= limit_version): vulnerable = False
 
                 else:
@@ -110,13 +116,10 @@ def version_is_not_patched(vulnerability: dict, package_name: str, package_versi
             if (vulnerable): return True
 
         return vulnerable
-        
-
+    
     except:
         warning_msg = PACKAGE_CVE_MISSING_PATCH_VERSION
         if (cve_identifier is not None): warning_msg += f' ({cve_identifier})'
 
         logging.warning(warning_msg)
         return DEFAULT_TO_VULNERABLE
-
-    return package_version < patched_version
