@@ -76,30 +76,40 @@ def version_is_not_patched(vulnerability: dict, package_name: str, package_versi
     cve_info = get(f'https://vuln.go.dev/ID/{cve_identifier}.json').json()
 
     try:
-        for affected in cve_info.get(AFFECTED):
-            if affected.get(PACKAGE).get(NAME) != package_name:
-                continue
+        affected = filter(
+                            lambda package: package.get(NAME) == package_name, 
+                            cve_info.get[AFFECTED]
+                        ).__next__()
 
-            vulnerable = False
-            # I <3 nesting
-            for range in affected.get(RANGES):
-                for event in range.get(EVENTS):
-                    if (event.get(INTRODUCED) is not None):
-                        introduced_version = event.get(INTRODUCED)
+        package_version = semver.Version.parse(package_version)
+        vulnerable = False
+        # I <3 nesting
+        for range in affected.get(RANGES):
+            for event in range.get(EVENTS):
+                if introduced_version := event.get(INTRODUCED):
+                    introduced_version = semver.Version.parse(introduced_version)
+                    if package_version >= introduced_version: vulnerable = True
 
-                        semver.compare(package_version, introduced_version)
-                    elif (event.get(FIXED) is not None):
-                        pass
-                    elif (event.get(LAST_AFFECTED) is not None):
-                        pass
-                    elif (event.get(LIMIT) is not None):
-                        pass
-                    else:
-                        pass
+                elif fixed_version := event.get(FIXED):
+                    fixed_version = semver.Version.parse(fixed_version)
+                    if package_version >= fixed_version: vulnerable = False
 
+                elif (last_affected_version := event.get(LAST_AFFECTED)):
+                    last_affected_version = semver.Version.parse(last_affected_version)
 
+                    if package_version > last_affected_version: vulnerable = False
 
-        semver.compare(package_version, patched_version)
+                elif limit_version := event.get(LIMIT):
+                    limit_version = semver.Version.parse(limit_version)
+
+                    if (package_version >= limit_version): vulnerable = False
+
+                else:
+                    pass
+            
+            if (vulnerable): return True
+
+        return vulnerable
         
 
     except:
