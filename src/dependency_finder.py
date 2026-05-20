@@ -49,10 +49,3 @@ def get_dependencies(path="."):
     
     for dependency in parse_json(stdout):
         yield dependency 
-
-def main():
-    for line in get_dependencies("../examples/vulnerable_project"):
-        print(line)
-
-if __name__ == '__main__':
-    main()
