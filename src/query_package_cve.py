@@ -88,6 +88,7 @@ def query_package_for_cve(package_name: str, package_version: str) -> list:
 # package_version: str  -- Version of the possibly affected package
 def version_is_not_patched(vulnerability: dict, package_name: str, package_version: str) -> bool:
     cve_identifier = vulnerability.get(ID)
+    package_version = package_version.removeprefix('v')
 
     try: cve_info = get_dict_by_cve(cve_identifier)
     except: 

@@ -1,9 +1,15 @@
+# DESCRIPTION
+# Script for identifying malicious strings within golang files.
+# It scans for all strings including byte arrays, and has the ability
+# to decode according to base64, hex, and byte decoding.
+# It then tries to match it against malicious patterns e.g. 
+# shell scripts, and URLs. 
+
 import base64
 import re
 
 
 URL_RE = re.compile(r"(https?|ftp|file)://[^\s\"'`<>]+|(?:javascript|data|vbscript):[^\s\"'`<>]+", re.I)
-
 SHELL_RE = re.compile(
     r"/bin/(sh|bash|zsh|dash)|"
     r"\b(sh|bash|zsh|dash)\s+-c\b|"
@@ -16,9 +22,7 @@ SHELL_RE = re.compile(
 )
 
 BASE64_RE = re.compile(r"\b[A-Za-z0-9+/_-]{12,}={0,2}\b")
-
 HEX_RE = re.compile(r"\b(?:0x)?[0-9a-fA-F]{2}(?:[\s,._:-]*(?:0x)?[0-9a-fA-F]{2}){3,}\b")
-
 BYTE_ARRAY_RE = re.compile(r"\[\]\s*(?:byte|uint8)\s*\{([^}]*)\}", re.S)
 
 
@@ -143,10 +147,3 @@ def scan_go_source(source):
         results.extend(scan_string(match.group(0)))
 
     return results
-
-
-def scan_go_file(path):
-    with open(path, "r") as file:
-        source = file.read()
-
-    return scan_go_source(source)
