@@ -1,3 +1,10 @@
+# DESCRIPTION
+# Script for identifying malicious strings within golang files.
+# It scans for all strings including byte arrays, and has the ability
+# to decode according to base64, hex, and byte decoding.
+# It then tries to match it against malicious patterns e.g. 
+# shell scripts, and URLs. 
+
 import base64
 import re
 

@@ -1,3 +1,7 @@
+# DESCRIPTION
+# The entry point for the program. 
+# Run it by $ python3 main.py <path>
+
 from dependency_finder import get_dependencies                  # get_dependencies(path=".")
 from package_capability_scan import get_package_capability      # get_package_capability(package_name: str) -> str
 from query_package_cve import query_package_for_cve             # query_package_for_cve(package_name: str, package_version: str) -> list

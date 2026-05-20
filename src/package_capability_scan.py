@@ -1,3 +1,7 @@
+# DESCRIPTION
+# Script which gathers the capabilities of different packages. 
+# This includes capabilities such as network or exec capabilities.
+
 PACKAGE_CAPABILITY_PATH = './data/package-capabilities.txt'
 
 def INIT_PACKAGE_CAPABILITIES() -> list:
