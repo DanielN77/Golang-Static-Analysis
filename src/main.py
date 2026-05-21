@@ -10,6 +10,8 @@ from string_analysis import scan_go_source                      # scan_go_source
 from sys import argv
 from pathlib import Path
 
+import re
+
 
 VERSION = 'Version'
 PACKAGE_NAME = 'Path'
@@ -34,12 +36,24 @@ def get_cves(dependencies: dict) -> list:
     
     return cves
 
-def get_package_capabilities(dependencies: dict) -> dict:
+def get_package_capabilities(golang_files: list) -> dict:
     capabilities = []
 
-    for dependency in dependencies:
-        package_name = dependency[PACKAGE_NAME]
-        capabilities.append((package_name, get_package_capability(package_name)))
+    for golang_file in golang_files:
+        with open(golang_file, 'r') as file:
+            content = file.read()
+        
+        content = re.sub(r'\s+', '', content)
+        packages = re.findall(r'\"([^\"]+)\"', content)
+
+        package_capabilities = []
+        for package in packages:
+            package_capability = get_package_capability(package)
+            if package_capability in package_capabilities: continue
+
+            package_capabilities.append(package_capability)
+        
+        capabilities.append((golang_file, package_capabilities))
 
     return capabilities
 
@@ -68,7 +82,7 @@ def main(path='.'):
     package_cves = get_cves(dependencies)
 
     # Returns [(package_name, capability)]
-    package_capabilities = get_package_capabilities(dependencies)
+    package_capabilities = get_package_capabilities(golang_files)
 
     # Returns [(go file path, string analysis)]
     string_analysis = get_string_analysis(golang_files)
