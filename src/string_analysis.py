@@ -9,7 +9,7 @@ import base64
 import re
 
 
-URL_RE = re.compile(r"(https?|ftp|file)://[^\s\"'`<>]+|(?:javascript|data|vbscript):[^\s\"'`<>]+", re.I)
+URL_RE = re.compile(r"(?:https?://)?[a-zA-Z\-]+\.[a-zA-Z-]{2,}", re.I)
 SHELL_RE = re.compile(
     r"/bin/(sh|bash|zsh|dash)|"
     r"\b(sh|bash|zsh|dash)\s+-c\b|"
@@ -95,32 +95,35 @@ def scan_string(value):
     b64 = base64_to_string(value)
     if b64:
         matches = looks_interesting(b64)
-        results.append({
-            "type": "base64",
-            "value": value,
-            "decoded": b64,
-            "matches": matches,
-        })
+        if matches.__len__() > 0:
+            results.append({
+                "type": "base64",
+                "value": value,
+                "decoded": b64,
+                "matches": matches,
+            })
 
     hx = hex_to_string(value)
     if hx:
         matches = looks_interesting(hx)
-        results.append({
-            "type": "hex",
-            "value": value,
-            "decoded": hx,
-            "matches": matches,
-        })
+        if matches.__len__() > 0:
+            results.append({
+                "type": "hex",
+                "value": value,
+                "decoded": hx,
+                "matches": matches,
+            })
 
     ba = byte_array_to_string(value)
     if ba:
         matches = looks_interesting(ba)
-        results.append({
-            "type": "byte_array",
-            "value": value,
-            "decoded": ba,
-            "matches": matches,
-        })
+        if matches.__len__() > 0:
+            results.append({
+                "type": "byte_array",
+                "value": value,
+                "decoded": ba,
+                "matches": matches,
+            })
 
     return results
 

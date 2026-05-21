@@ -15,6 +15,7 @@ from re import search
 import semver
 import logging
 import json
+import os
 
 # Keys 
 PATH        = 'path'
@@ -34,8 +35,8 @@ LAST_AFFECTED   = 'last_affected'
 LIMIT           = 'limit'
 
 # Paths to required files
-MODULES_PATH = './data/modules.json'
-CVE_PATH = './data/ID'
+MODULES_PATH = f'{os.path.dirname(__file__)}/data/modules.json'
+CVE_PATH = f'{os.path.dirname(__file__)}/data/ID'
 
 
 def get_dict_by_cve(cve_id: str) -> dict:     

@@ -2,7 +2,9 @@
 # Script which gathers the capabilities of different packages. 
 # This includes capabilities such as network or exec capabilities.
 
-PACKAGE_CAPABILITY_PATH = './data/package-capabilities.txt'
+import os
+
+PACKAGE_CAPABILITY_PATH = f'{os.path.dirname(__file__)}/data/package-capabilities.txt'
 
 def INIT_PACKAGE_CAPABILITIES() -> list:
     with open(PACKAGE_CAPABILITY_PATH, 'r') as file:
