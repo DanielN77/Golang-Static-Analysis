@@ -76,7 +76,21 @@ def query_package_for_cve(package_name: str, package_version: str) -> list:
                         entry_returned.get(VULNS)
                     ))
 
-    return list(map(lambda vuln: vuln.get(ID), unpatched_vulns))
+    # Get the actual CVEs and GHSAs linked to the Go vulnerabilities
+    go_ids = list(map(lambda vuln: vuln.get(ID), unpatched_vulns))
+    result = []
+    for go_id in go_ids:
+        try:
+            vuln_data  = get_dict_by_cve(go_id)
+            aliases = vuln_data.get("aliases", [])
+        except:
+            aliases = []
+        
+        result.append({
+            "go_id": go_id,
+            "aliases": aliases
+        })
+    return result
 
 # Returns true if the package version is below the patched version.
 # In the case that the version is missing or is using an unrecognized format,

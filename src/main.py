@@ -7,7 +7,7 @@ from package_capability_scan import get_package_capability      # get_package_ca
 from query_package_cve import query_package_for_cve             # query_package_for_cve(package_name: str, package_version: str) -> list
 from string_analysis import scan_go_source                      # scan_go_source(source)
 from update import check_for_updates                            # check_for_updates()
-from print_format import *                                      # print_cves(package_cves), print_capabilities(package_capabilities), print_string_analysis(string_analysis)
+from terminal_print import *                                      # print_cves(package_cves), print_capabilities(package_capabilities), print_string_analysis(string_analysis)
 from sys import argv
 from pathlib import Path
 
@@ -93,8 +93,6 @@ def main(path='.'):
     print_cves(package_cves)
     print_capabilities(package_capabilities)
     print_string_analysis(string_analysis)
-
-
 
 if __name__ == '__main__':
     main()
