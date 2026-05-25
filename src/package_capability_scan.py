@@ -4,7 +4,7 @@
 
 import os
 
-PACKAGE_CAPABILITY_PATH = f'{os.path.dirname(__file__)}/data/package-capabilities.txt'
+PACKAGE_CAPABILITY_PATH = os.path.join(os.path.dirname(__file__), "data", "package-capabilities.txt")
 
 def INIT_PACKAGE_CAPABILITIES() -> list:
     with open(PACKAGE_CAPABILITY_PATH, 'r') as file:

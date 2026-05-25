@@ -35,12 +35,12 @@ LAST_AFFECTED   = 'last_affected'
 LIMIT           = 'limit'
 
 # Paths to required files
-MODULES_PATH = f'{os.path.dirname(__file__)}/data/modules.json'
-CVE_PATH = f'{os.path.dirname(__file__)}/data/ID'
+MODULES_PATH = os.path.join(os.path.dirname(__file__), "data", "modules.json")
+CVE_PATH = os.path.join(os.path.dirname(__file__), "data", "ID")
 
 
 def get_dict_by_cve(cve_id: str) -> dict:     
-    with open(f'{CVE_PATH}/{cve_id}.json', 'r') as file:
+    with open(os.path.join(CVE_PATH, f'{cve_id}.json'), 'r') as file:
         return json.load(file)
     
 def get_modules():
