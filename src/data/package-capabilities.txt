@@ -70,3 +70,5 @@ package net CAPABILITY_NETWORK
 package net/http CAPABILITY_NETWORK
 package unsafe CAPABILITY_ARBITRARY_EXECUTION
 package golang.org/x/sys/unix CAPABILITY_SYSTEM_CALLS
+package github.com/gorilla/mux CAPABILITY_NETWORK
+package github.com/sirupsen/logrus CAPABILITY_FILES
