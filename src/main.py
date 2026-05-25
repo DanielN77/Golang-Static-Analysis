@@ -50,9 +50,9 @@ def get_package_capabilities(golang_files: list) -> dict:
         package_capabilities = []
         for package in packages:
             package_capability = get_package_capability(package)
-            if package_capability in package_capabilities: continue
+            if (package, package_capability) in package_capabilities: continue
 
-            package_capabilities.append(package_capability)
+            package_capabilities.append((package,package_capability))
         
         capabilities.append((golang_file, package_capabilities))
 
