@@ -6,6 +6,7 @@ from dependency_finder import get_dependencies                  # get_dependenci
 from package_capability_scan import get_package_capability      # get_package_capability(package_name: str) -> str
 from query_package_cve import query_package_for_cve             # query_package_for_cve(package_name: str, package_version: str) -> list
 from string_analysis import scan_go_source                      # scan_go_source(source)
+from update import check_for_updates                            # check_for_updates()
 
 from sys import argv
 from pathlib import Path
@@ -75,6 +76,8 @@ def main(path='.'):
 
     golang_files = get_all_golang_files(path)
 
+    # Update local database
+    check_for_updates()
     # Remove dependencies wihtout versions
     dependencies = list(filter(lambda package: package.get(VERSION, None) is not None, get_dependencies(path)))
 

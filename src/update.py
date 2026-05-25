@@ -108,8 +108,6 @@ def check_for_updates():
     else:
         print(f"Local database is up to date (modified : {current_version})")
 
-def main():
-    check_for_updates()
-
 if __name__ == "__main__":
-    main()
+    print("Running manual update...")
+    check_for_updates()
