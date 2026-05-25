@@ -7,10 +7,10 @@ import shutil
 
 DB_VERSION_URL = "https://vuln.go.dev/index/db.json"
 VULNDB_ZIP_URL = "https://vuln.go.dev/vulndb.zip"
-DATA_DIR = f'{os.path.dirname(__file__)}/data'
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
 def get_current_version():
-    db_json_path = f'{DATA_DIR}/db.json'
+    db_json_path = os.path.join(DATA_DIR, "db.json")
     if not os.path.exists(db_json_path):
         print("Local db.json file not found.")
         return None
@@ -54,7 +54,7 @@ def full_update():
         
         # Update /ID/
         os.makedirs(DATA_DIR, exist_ok=True)
-        new_id_dir = f'{tmp_dir}/ID'
+        new_id_dir = os.path.join(tmp_dir, "ID")
         if os.path.exists(new_id_dir) and os.path.isdir(new_id_dir):
             old_id_dir = os.path.join(DATA_DIR, "ID")
             if os.path.exists(old_id_dir):
