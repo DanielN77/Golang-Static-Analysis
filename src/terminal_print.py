@@ -91,17 +91,28 @@ def print_capabilities(package_capabilities, project_root=os.getcwd()):
     console.print(table)
 
 def print_string_analysis(string_analysis, project_root=os.getcwd()):
+    if not string_analysis[0][1]:
+        console.print("[green]No malicious strings found[/green]")
     for file_path, findings in string_analysis:
         if not findings:
             continue
         display_path = shorten_path(file_path, project_root)
         tree = Tree(f"[cyan]{display_path}[/cyan]")
         for finding in findings:
-            match_type = finding["type"]
-            value = finding.get("decoded", finding["value"])
+            original_string = finding["original"]
+            path_of_decoding = finding["path"]
+            decoded_value = finding["decoded"]
             matches = ", ".join(finding["matches"])
-            
-            branch = tree.add(f"[yellow]{match_type}[/yellow]: {value[:80]}")
-            branch.add(f"Matches: [red]{matches}[/red]")
+
+            if not path_of_decoding:
+                branch = tree.add(f"[yellow]Plaintext[/yellow]")
+                branch.add(f"Found: {decoded_value[:80]}")
+                branch.add(f"Matches: [red]{matches}[/red]")
+            else:
+                branch = tree.add(f"[yellow]{path_of_decoding[0]}[/yellow]: {original_string[:80]}")
+                for decode_step in path_of_decoding[1:]:
+                    branch = branch.add(f"[yellow]{decode_step}[/yellow]")
+                branch.add(f"Found: {decoded_value[:80]}")
+                branch.add(f"Matches: [red]{matches}[/red]")
         
         console.print(tree)
