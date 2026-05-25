@@ -3,8 +3,18 @@ from rich.table import Table
 from rich.panel import Panel
 from rich.tree import Tree
 from rich import box
+import os
 
 console = Console()
+
+def shorten_path(absolute_path: str, project_root: str) -> str:
+    """Convert absolute path to relative path from project root"""
+    try:
+        relative = os.path.relpath(absolute_path, project_root)
+        return f"./{relative}"
+    except ValueError:
+        # If the project is out of root, just use the filename
+        return os.path.basename(absolute_path)
 
 def print_cves(package_cves):
     if not package_cves:
@@ -40,7 +50,7 @@ def print_cves(package_cves):
     
     console.print(table)
 
-def print_capabilities(package_capabilities):
+def print_capabilities(package_capabilities, project_root=os.getcwd()):
     table = Table(title="Package Capability Analysis", box=box.ROUNDED)
     table.add_column("File", style="cyan")
     table.add_column("Package", style="bold")
@@ -69,28 +79,29 @@ def print_capabilities(package_capabilities):
     }
     
     for file_path, capabilities in package_capabilities:
+        display_path = shorten_path(file_path, project_root)
         for package, capability in capabilities:
             color = danger_levels.get(capability, "white")
             table.add_row(
-                file_path,
+                display_path,
                 package,
                 f"[{color}]{capability}[/{color}]"
             )
     
     console.print(table)
 
-def print_string_analysis(string_analysis):
+def print_string_analysis(string_analysis, project_root=os.getcwd()):
     for file_path, findings in string_analysis:
         if not findings:
             continue
-        
-        tree = Tree(f"[cyan]{file_path}[/cyan]")
+        display_path = shorten_path(file_path, project_root)
+        tree = Tree(f"[cyan]{display_path}[/cyan]")
         for finding in findings:
             match_type = finding["type"]
             value = finding.get("decoded", finding["value"])
             matches = ", ".join(finding["matches"])
             
-            branch = tree.add(f"[yellow]{match_type}[/yellow]: {value[:80]}...")
+            branch = tree.add(f"[yellow]{match_type}[/yellow]: {value[:80]}")
             branch.add(f"Matches: [red]{matches}[/red]")
         
         console.print(tree)
