@@ -25,6 +25,13 @@ BASE64_RE = re.compile(r"\b[A-Za-z0-9+/_-]{12,}={0,2}\b")
 HEX_RE = re.compile(r"\b(?:0x)?[0-9a-fA-F]{2}(?:[\s,._:-]*(?:0x)?[0-9a-fA-F]{2}){3,}\b")
 BYTE_ARRAY_RE = re.compile(r"\[\]\s*(?:byte|uint8)\s*\{([^}]*)\}", re.S)
 
+SINGLE_LINE_IMPORT_RE = re.compile(r'import\s+(?:"[^"]*"|`[^`]*`)', re.S)
+BLOCK_IMPORT_RE = re.compile(r'import\s*\([^)]*\)', re.S)
+
+def remove_imports(source):
+    source = BLOCK_IMPORT_RE.sub('', source)
+    source = SINGLE_LINE_IMPORT_RE.sub('', source)
+    return source
 
 def bytes_to_string(data):
     return data.decode("utf-8")
@@ -142,6 +149,8 @@ def extract_go_strings(source):
 
 def scan_go_source(source):
     results = []
+
+    source = remove_imports(source)
 
     for value in extract_go_strings(source):
         results.extend(scan_string(value))
