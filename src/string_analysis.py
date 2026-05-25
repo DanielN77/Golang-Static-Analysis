@@ -88,49 +88,44 @@ def looks_interesting(value):
     return findings
 
 
-def scan_string(value):
+def scan_string(value, depth=0, max_depth=10, seen=None, original=None, path=None):
+    if depth > max_depth:
+        return []
+    
+    # First iteration
+    if seen is None:
+        seen = set()
+    if original is None:
+        original = value
+    if path is None:
+        path = []
+    
+    # Cycle detection
+    if value in seen:
+        return []
+    seen.add(value)
     results = []
 
     direct = looks_interesting(value)
     if direct:
         results.append({
-            "type": "plain",
-            "value": value,
+            "original": original,
+            "path": path,
+            "decoded": value,
             "matches": direct,
         })
 
     b64 = base64_to_string(value)
     if b64:
-        matches = looks_interesting(b64)
-        if matches.__len__() > 0:
-            results.append({
-                "type": "base64",
-                "value": value,
-                "decoded": b64,
-                "matches": matches,
-            })
+        results.extend(scan_string(b64, depth + 1, max_depth, seen.copy(), original, path + ["base64"]))
 
     hx = hex_to_string(value)
     if hx:
-        matches = looks_interesting(hx)
-        if matches.__len__() > 0:
-            results.append({
-                "type": "hex",
-                "value": value,
-                "decoded": hx,
-                "matches": matches,
-            })
+        results.extend(scan_string(hx, depth + 1, max_depth, seen.copy(), original, path + ["hex"]))
 
     ba = byte_array_to_string(value)
     if ba:
-        matches = looks_interesting(ba)
-        if matches.__len__() > 0:
-            results.append({
-                "type": "byte_array",
-                "value": value,
-                "decoded": ba,
-                "matches": matches,
-            })
+        results.extend(scan_string(ba, depth + 1, max_depth, seen.copy(), original, path + ["byte_array"]))
 
     return results
 
