@@ -119,13 +119,13 @@ def scan_string(value, depth=0, max_depth=10, seen=None, original=None, path=Non
     if b64:
         results.extend(scan_string(b64, depth + 1, max_depth, seen.copy(), original, path + ["base64"]))
 
-    hx = hex_to_string(value)
-    if hx:
-        results.extend(scan_string(hx, depth + 1, max_depth, seen.copy(), original, path + ["hex"]))
-
     ba = byte_array_to_string(value)
     if ba:
         results.extend(scan_string(ba, depth + 1, max_depth, seen.copy(), original, path + ["byte_array"]))
+    else:
+        hx = hex_to_string(value)
+        if hx:
+            results.extend(scan_string(hx, depth + 1, max_depth, seen.copy(), original, path + ["hex"]))
 
     return results
 
@@ -152,5 +152,4 @@ def scan_go_source(source):
 
     for match in BYTE_ARRAY_RE.finditer(source):
         results.extend(scan_string(match.group(0)))
-
     return results
