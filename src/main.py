@@ -2,11 +2,12 @@
 # The entry point for the program. 
 # Run it by $ python3 main.py <path>
 
-from dependency_finder import get_dependencies                  # get_dependencies(path=".")
-from package_capability_scan import get_package_capability      # get_package_capability(package_name: str) -> str
-from query_package_cve import query_package_for_cve             # query_package_for_cve(package_name: str, package_version: str) -> list
-from string_analysis import scan_go_source                      # scan_go_source(source)
-
+from dependency_finder import get_dependencies                                      # get_dependencies(path=".")
+from package_capability_scan import get_package_capability                          # get_package_capability(package_name: str) -> str
+from query_package_cve import query_package_for_cve                                 # query_package_for_cve(package_name: str, package_version: str) -> list
+from string_analysis import scan_go_source                                          # scan_go_source(source)
+from update import check_for_updates                                                # check_for_updates()
+from terminal_print import print_cves, print_capabilities, print_string_analysis    # print_cves(package_cves), print_capabilities(package_capabilities), print_string_analysis(string_analysis)
 from sys import argv
 from pathlib import Path
 
@@ -43,15 +44,23 @@ def get_package_capabilities(golang_files: list) -> dict:
         with open(golang_file, 'r') as file:
             content = file.read()
         
-        content = re.sub(r'\s+', '', content)
-        packages = re.findall(r'\"([^\"]+)\"', content)
+        # Add all types of imports to packages
+        packages = set()
+        single_imports = re.findall(r'^import\s+"([^"]+)"', content, re.MULTILINE)
+        packages.update(single_imports)
+        block_imports = re.findall(r'import\s*\(\s*(.*?)\s*\)', content, re.DOTALL)
+        for block_import in block_imports:
+            imps = re.findall(r'"([^"]+)"', block_import)
+            for imp in imps:
+                if not imp.startswith('//'):
+                    packages.add(imp)
 
         package_capabilities = []
         for package in packages:
             package_capability = get_package_capability(package)
-            if package_capability in package_capabilities: continue
+            if (package, package_capability) in package_capabilities: continue
 
-            package_capabilities.append(package_capability)
+            package_capabilities.append((package,package_capability))
         
         capabilities.append((golang_file, package_capabilities))
 
@@ -75,6 +84,8 @@ def main(path='.'):
 
     golang_files = get_all_golang_files(path)
 
+    # Update local database
+    check_for_updates()
     # Remove dependencies wihtout versions
     dependencies = list(filter(lambda package: package.get(VERSION, None) is not None, get_dependencies(path)))
 
@@ -87,11 +98,9 @@ def main(path='.'):
     # Returns [(go file path, string analysis)]
     string_analysis = get_string_analysis(golang_files)
 
-    print(package_cves)
-    print(package_capabilities)
-    print(string_analysis)
-
-
+    print_cves(package_cves)
+    print_capabilities(package_capabilities)
+    print_string_analysis(string_analysis)
 
 if __name__ == '__main__':
     main()

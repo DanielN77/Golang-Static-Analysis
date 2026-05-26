@@ -35,12 +35,12 @@ LAST_AFFECTED   = 'last_affected'
 LIMIT           = 'limit'
 
 # Paths to required files
-MODULES_PATH = f'{os.path.dirname(__file__)}/data/modules.json'
-CVE_PATH = f'{os.path.dirname(__file__)}/data/ID'
+MODULES_PATH = os.path.join(os.path.dirname(__file__), "data", "modules.json")
+CVE_PATH = os.path.join(os.path.dirname(__file__), "data", "ID")
 
 
 def get_dict_by_cve(cve_id: str) -> dict:     
-    with open(f'{CVE_PATH}/{cve_id}.json', 'r') as file:
+    with open(os.path.join(CVE_PATH, f'{cve_id}.json'), 'r') as file:
         return json.load(file)
     
 def get_modules():
@@ -76,7 +76,21 @@ def query_package_for_cve(package_name: str, package_version: str) -> list:
                         entry_returned.get(VULNS)
                     ))
 
-    return list(map(lambda vuln: vuln.get(ID), unpatched_vulns))
+    # Get the actual CVEs and GHSAs linked to the Go vulnerabilities
+    go_ids = list(map(lambda vuln: vuln.get(ID), unpatched_vulns))
+    result = []
+    for go_id in go_ids:
+        try:
+            vuln_data  = get_dict_by_cve(go_id)
+            aliases = vuln_data.get("aliases", [])
+        except:
+            aliases = []
+        
+        result.append({
+            "go_id": go_id,
+            "aliases": aliases
+        })
+    return result
 
 # Returns true if the package version is below the patched version.
 # In the case that the version is missing or is using an unrecognized format,

@@ -25,6 +25,13 @@ BASE64_RE = re.compile(r"\b[A-Za-z0-9+/_-]{12,}={0,2}\b")
 HEX_RE = re.compile(r"\b(?:0x)?[0-9a-fA-F]{2}(?:[\s,._:-]*(?:0x)?[0-9a-fA-F]{2}){3,}\b")
 BYTE_ARRAY_RE = re.compile(r"\[\]\s*(?:byte|uint8)\s*\{([^}]*)\}", re.S)
 
+SINGLE_LINE_IMPORT_RE = re.compile(r'import\s+(?:"[^"]*"|`[^`]*`)', re.S)
+BLOCK_IMPORT_RE = re.compile(r'import\s*\([^)]*\)', re.S)
+
+def remove_imports(source):
+    source = BLOCK_IMPORT_RE.sub('', source)
+    source = SINGLE_LINE_IMPORT_RE.sub('', source)
+    return source
 
 def bytes_to_string(data):
     return data.decode("utf-8")
@@ -81,49 +88,44 @@ def looks_interesting(value):
     return findings
 
 
-def scan_string(value):
+def scan_string(value, depth=0, max_depth=10, seen=None, original=None, path=None):
+    if depth > max_depth:
+        return []
+    
+    # First iteration
+    if seen is None:
+        seen = set()
+    if original is None:
+        original = value
+    if path is None:
+        path = []
+    
+    # Cycle detection
+    if value in seen:
+        return []
+    seen.add(value)
     results = []
 
     direct = looks_interesting(value)
     if direct:
         results.append({
-            "type": "plain",
-            "value": value,
+            "original": original,
+            "path": path,
+            "decoded": value,
             "matches": direct,
         })
 
     b64 = base64_to_string(value)
     if b64:
-        matches = looks_interesting(b64)
-        if matches.__len__() > 0:
-            results.append({
-                "type": "base64",
-                "value": value,
-                "decoded": b64,
-                "matches": matches,
-            })
-
-    hx = hex_to_string(value)
-    if hx:
-        matches = looks_interesting(hx)
-        if matches.__len__() > 0:
-            results.append({
-                "type": "hex",
-                "value": value,
-                "decoded": hx,
-                "matches": matches,
-            })
+        results.extend(scan_string(b64, depth + 1, max_depth, seen.copy(), original, path + ["base64"]))
 
     ba = byte_array_to_string(value)
     if ba:
-        matches = looks_interesting(ba)
-        if matches.__len__() > 0:
-            results.append({
-                "type": "byte_array",
-                "value": value,
-                "decoded": ba,
-                "matches": matches,
-            })
+        results.extend(scan_string(ba, depth + 1, max_depth, seen.copy(), original, path + ["byte_array"]))
+    else:
+        hx = hex_to_string(value)
+        if hx:
+            results.extend(scan_string(hx, depth + 1, max_depth, seen.copy(), original, path + ["hex"]))
 
     return results
 
@@ -143,10 +145,12 @@ def extract_go_strings(source):
 def scan_go_source(source):
     results = []
 
+    source = remove_imports(source)
+
     for value in extract_go_strings(source):
         results.extend(scan_string(value))
 
+    # For when the encoding chain starts with a byte array, since only strings are extracted from extract_go_strings
     for match in BYTE_ARRAY_RE.finditer(source):
         results.extend(scan_string(match.group(0)))
-
     return results
