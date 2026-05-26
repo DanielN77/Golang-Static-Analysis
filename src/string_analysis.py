@@ -150,6 +150,7 @@ def scan_go_source(source):
     for value in extract_go_strings(source):
         results.extend(scan_string(value))
 
+    # For when the encoding chain starts with a byte array, since only strings are extracted from extract_go_strings
     for match in BYTE_ARRAY_RE.finditer(source):
         results.extend(scan_string(match.group(0)))
     return results
