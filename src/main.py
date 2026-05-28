@@ -8,11 +8,12 @@ from query_package_cve import query_package_for_cve                             
 from string_analysis import scan_go_source                                          # scan_go_source(source)
 from update import check_for_updates                                                # check_for_updates()
 from terminal_print import print_cves, print_capabilities, print_string_analysis    # print_cves(package_cves), print_capabilities(package_capabilities), print_string_analysis(string_analysis)
+from export import save_sarif_report, create_sarif_report
 from sys import argv
 from pathlib import Path
 
+import argparse
 import re
-
 
 VERSION = 'Version'
 PACKAGE_NAME = 'Path'
@@ -66,7 +67,6 @@ def get_package_capabilities(golang_files: list) -> dict:
 
     return capabilities
 
-
 def get_string_analysis(golang_files: list) -> list:
     string_analysis = []
 
@@ -77,10 +77,28 @@ def get_string_analysis(golang_files: list) -> list:
     
     return string_analysis
         
-
 def main(path='.'):
-    try: path = argv[1]
-    except: pass
+    parser = argparse.ArgumentParser(
+        description="Langsec Golang Dependency Checker"
+    )
+    parser.add_argument(
+        "path",
+        nargs="?",
+        default=".",
+        help="Path to scan"
+    )
+    parser.add_argument(
+        "--sarif",
+        action="store_true",
+        help="Export SARIF report instead of printing"
+    )
+    parser.add_argument(
+        "--output",
+        default="report.sarif",
+        help="SARIF output file"
+    )
+    args = parser.parse_args()
+    path = args.path
 
     golang_files = get_all_golang_files(path)
 
@@ -98,9 +116,13 @@ def main(path='.'):
     # Returns [(go file path, string analysis)]
     string_analysis = get_string_analysis(golang_files)
 
-    print_cves(package_cves)
-    print_capabilities(package_capabilities)
-    print_string_analysis(string_analysis)
+    if args.sarif:
+        report = create_sarif_report(package_cves, package_capabilities, string_analysis)
+        save_sarif_report(report, args.output)
+    else:
+        print_cves(package_cves)
+        print_capabilities(package_capabilities)
+        print_string_analysis(string_analysis)
 
 if __name__ == '__main__':
     main()
