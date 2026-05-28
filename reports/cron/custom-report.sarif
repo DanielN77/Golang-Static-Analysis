@@ -1,0 +1,1049 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Langsec Golang Dependency Checker",
+          "informationUri": "https://github.com/DanielN77/Langsec-Golang-Dependency-Checker",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "CAPABILITY_ANALYSIS",
+              "name": "Capability Analysis",
+              "shortDescription": {
+                "text": "Capability analysis result"
+              },
+              "properties": {
+                "tags": [
+                  "capability",
+                  "analysis"
+                ]
+              }
+            },
+            {
+              "id": "STRING_ANALYSIS",
+              "name": "String analysis",
+              "shortDescription": {
+                "text": "Decoded suspicious string"
+              },
+              "properties": {
+                "tags": [
+                  "string-analysis",
+                  "obfuscation"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/spec_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/spec_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/spec_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/constantdelay.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'log' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "log",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'bytes' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "bytes",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'sync' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "sync",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'sync/atomic' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "sync/atomic",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strconv' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strconv",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'math' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "math",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/spec.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/option_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'log' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "log",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/option_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/option_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/option_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'log' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "log",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_REFLECT",
+          "message": {
+            "text": "Package 'reflect' has capability 'CAPABILITY_REFLECT'"
+          },
+          "export": {
+            "package_name": "reflect",
+            "capability": "CAPABILITY_REFLECT"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'io/ioutil' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "io/ioutil",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'sync' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "sync",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/logger.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'log' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "log",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/logger.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_OPERATING_SYSTEM",
+          "message": {
+            "text": "Package 'os' has capability 'CAPABILITY_OPERATING_SYSTEM'"
+          },
+          "export": {
+            "package_name": "os",
+            "capability": "CAPABILITY_OPERATING_SYSTEM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/logger.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'io/ioutil' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "io/ioutil",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/logger.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/logger.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/option.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'sort' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "sort",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'sync' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "sync",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'context' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "context",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'sync' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "sync",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_RUNTIME",
+          "message": {
+            "text": "Package 'runtime' has capability 'CAPABILITY_RUNTIME'"
+          },
+          "export": {
+            "package_name": "runtime",
+            "capability": "CAPABILITY_RUNTIME"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/chain.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_REFLECT",
+          "message": {
+            "text": "Package 'reflect' has capability 'CAPABILITY_REFLECT'"
+          },
+          "export": {
+            "package_name": "reflect",
+            "capability": "CAPABILITY_REFLECT"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/parser_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/constantdelay_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/constantdelay_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='cron.With*', Decoded='cron.With*', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "cron.With*",
+            "decoded": "cron.With*",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/cron.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='cron.WithChain', Decoded='cron.WithChain', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "cron.WithChain",
+            "decoded": "cron.WithChain",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/cron/doc.go"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3462 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "govulncheck",
+          "semanticVersion": "v1.3.0",
+          "informationUri": "https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck",
+          "properties": {
+            "protocol_version": "v1.0.0",
+            "scanner_name": "govulncheck",
+            "scanner_version": "v1.3.0",
+            "db": "https://vuln.go.dev",
+            "db_last_modified": "2026-05-26T22:49:18Z",
+            "go_version": "go1.26.2",
+            "scan_level": "symbol",
+            "scan_mode": "source"
+          },
+          "rules": [
+            {
+              "id": "GO-2026-4394",
+              "shortDescription": {
+                "text": "[GO-2026-4394] OpenTelemetry Go SDK Vulnerable to Arbitrary Code Execution via PATH Hijacking in go.opentelemetry.io/otel/sdk"
+              },
+              "fullDescription": {
+                "text": "OpenTelemetry Go SDK Vulnerable to Arbitrary Code Execution via PATH Hijacking in go.opentelemetry.io/otel/sdk"
+              },
+              "help": {
+                "text": "OpenTelemetry Go SDK Vulnerable to Arbitrary Code Execution via PATH Hijacking in go.opentelemetry.io/otel/sdk"
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4394",
+              "properties": {
+                "tags": [
+                  "CVE-2026-24051",
+                  "GHSA-9h8m-3fm2-qjrq"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4918",
+              "shortDescription": {
+                "text": "[GO-2026-4918] Infinite loop in HTTP/2 transport when given bad SETTINGS_MAX_FRAME_SIZE in net/http/internal/http2 in golang.org/x/net"
+              },
+              "fullDescription": {
+                "text": "Infinite loop in HTTP/2 transport when given bad SETTINGS_MAX_FRAME_SIZE in net/http/internal/http2 in golang.org/x/net"
+              },
+              "help": {
+                "text": "When processing HTTP/2 SETTINGS frames, transport will enter an infinite loop of writing CONTINUATION frames if it receives a SETTINGS_MAX_FRAME_SIZE with a value of 0."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4918",
+              "properties": {
+                "tags": [
+                  "CVE-2026-33814"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4971",
+              "shortDescription": {
+                "text": "[GO-2026-4971] Panic in Dial and LookupPort when handling NUL byte on Windows in net"
+              },
+              "fullDescription": {
+                "text": "Panic in Dial and LookupPort when handling NUL byte on Windows in net"
+              },
+              "help": {
+                "text": "The Dial and LookupPort functions panic on Windows when provided with an input containing a NUL (0)."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4971",
+              "properties": {
+                "tags": [
+                  "CVE-2026-39836"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4976",
+              "shortDescription": {
+                "text": "[GO-2026-4976] ReverseProxy forwards queries with more than urlmaxqueryparams parameters in net/http/httputil"
+              },
+              "fullDescription": {
+                "text": "ReverseProxy forwards queries with more than urlmaxqueryparams parameters in net/http/httputil"
+              },
+              "help": {
+                "text": "ReverseProxy can forward queries containing parameters not visible to Rewrite functions.\n\nWhen used with a Rewrite function, or a Director function which parses query parameters, ReverseProxy sanitizes the forwarded request to remove query parameters which are not parsed by url.ParseQuery. ReverseProxy does not take ParseQuery's limit on the total number of query parameters (controlled by GODEBUG=urlmaxqueryparams=N) into account. This can permit ReverseProxy to forward a request containing a query parameter that is not visible to the Rewrite function.\n\nFor example, the query \"a1=x\u0026a2=x\u0026...\u0026a10000=x\u0026hidden=y\" can forward the parameter \"hidden=y\" while hiding it from the proxy's Rewrite function."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4976",
+              "properties": {
+                "tags": [
+                  "CVE-2026-39825"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4977",
+              "shortDescription": {
+                "text": "[GO-2026-4977] Quadratic string concatenation in consumePhrase in net/mail"
+              },
+              "fullDescription": {
+                "text": "Quadratic string concatenation in consumePhrase in net/mail"
+              },
+              "help": {
+                "text": "Pathological inputs could cause DoS through consumePhrase when parsing an email address according to RFC 5322."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4977",
+              "properties": {
+                "tags": [
+                  "CVE-2026-42499"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4980",
+              "shortDescription": {
+                "text": "[GO-2026-4980] Escaper bypass leads to XSS in html/template"
+              },
+              "fullDescription": {
+                "text": "Escaper bypass leads to XSS in html/template"
+              },
+              "help": {
+                "text": "If a trusted template author were to write a \u003cscript\u003e tag containing an empty 'type' attribute or a 'type' attribute with an ASCII whitespace, the execution of the template would incorrectly escape any data passed into the \u003cscript\u003e block."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4980",
+              "properties": {
+                "tags": [
+                  "CVE-2026-39826"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4981",
+              "shortDescription": {
+                "text": "[GO-2026-4981] Crash when handling long CNAME response in net"
+              },
+              "fullDescription": {
+                "text": "Crash when handling long CNAME response in net"
+              },
+              "help": {
+                "text": "When using LookupCNAME with the cgo DNS resolver, a very long CNAME response can trigger a double-free of C memory and a crash."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4981",
+              "properties": {
+                "tags": [
+                  "CVE-2026-33811"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4982",
+              "shortDescription": {
+                "text": "[GO-2026-4982] Bypass of meta content URL escaping causes XSS in html/template"
+              },
+              "fullDescription": {
+                "text": "Bypass of meta content URL escaping causes XSS in html/template"
+              },
+              "help": {
+                "text": "CVE-2026-27142 fixed a vulnerability in which URLs were not correctly escaped inside of a \u003cmeta\u003e tag's \u003ccontent\u003e attribute. If the URL content were to insert ASCII whitespaces around the '=' rune inside of the \u003ccontent\u003e attribute, the escaper would fail to similarly escape it, leading to XSS."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4982",
+              "properties": {
+                "tags": [
+                  "CVE-2026-39823"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4986",
+              "shortDescription": {
+                "text": "[GO-2026-4986] Quadratic string concatentation in consumeComment in net/mail"
+              },
+              "fullDescription": {
+                "text": "Quadratic string concatentation in consumeComment in net/mail"
+              },
+              "help": {
+                "text": "Well-crafted inputs reaching ParseAddress, ParseAddressList, and ParseDate were able to trigger excessive CPU exhaustion and memory allocations."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-4986",
+              "properties": {
+                "tags": [
+                  "CVE-2026-39820"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-5024",
+              "shortDescription": {
+                "text": "[GO-2026-5024] Invoking integer overflow in NewNTUnicodeString in golang.org/x/sys/windows"
+              },
+              "fullDescription": {
+                "text": "Invoking integer overflow in NewNTUnicodeString in golang.org/x/sys/windows"
+              },
+              "help": {
+                "text": "NewNTUnicodeString does not check for string length overflow. When provided with a string that overflows the maximum size of a NTUnicodeString (a 16-bit number of bytes), it returns a truncated string rather than an error."
+              },
+              "helpUri": "https://pkg.go.dev/vuln/GO-2026-5024",
+              "properties": {
+                "tags": [
+                  "CVE-2026-39824"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "GO-2026-4394",
+          "level": "error",
+          "message": {
+            "text": "Your code calls vulnerable functions in 6 packages (go.opentelemetry.io/otel/sdk, go.opentelemetry.io/otel/sdk/instrumentation, go.opentelemetry.io/otel/sdk/internal/env, go.opentelemetry.io/otel/sdk/internal/x, go.opentelemetry.io/otel/sdk/resource, and go.opentelemetry.io/otel/sdk/trace)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4394"
+              }
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "badger/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/badger.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/contrib/zpages.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/version.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 5,
+                            "startColumn": 1
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk.init"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk.init"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "badger/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/badger.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/contrib/zpages.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 14,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/instrumentation/doc.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 13,
+                            "startColumn": 1
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/instrumentation.init"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/instrumentation.init"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "badger/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/badger.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/contrib/zpages.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/batch_span_processor.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/internal/env/env.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 6,
+                            "startColumn": 1
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/internal/env.init"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/internal/env.init"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "badger/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/badger.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/contrib/zpages.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/internal/x/x.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 8,
+                            "startColumn": 1
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/internal/x.init"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/internal/x.init"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "badger/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/badger.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/contrib/zpages.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/resource/auto.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 1
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/resource.init"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/resource.init"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "levels.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 331,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 446,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.*recordingSpan.End"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.*recordingSpan.End"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "levels.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 326,
+                            "startColumn": 22
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 227,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SetAttributes"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SetAttributes"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "levels.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 325,
+                            "startColumn": 36
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 149,
+                            "startColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/internal/global.*tracer.Start"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 184,
+                            "startColumn": 56
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/internal/global.*tracer.newSpan"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 161,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SpanContext"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SpanContext"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "badger/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/badger.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 23,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/contrib/zpages.init"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/batch_span_processor.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 1
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.init"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "db.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 520,
+                            "startColumn": 17
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*DB.Close"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/sync/once.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 69,
+                            "startColumn": 11
+                          }
+                        },
+                        "message": {
+                          "text": "sync.*Once.Do"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/sync/once.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 78,
+                            "startColumn": 4
+                          }
+                        },
+                        "message": {
+                          "text": "sync.*Once.doSlow"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 267,
+                            "startColumn": 20
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.init"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "db.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 520,
+                            "startColumn": 17
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*DB.Close"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/sync/once.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 69,
+                            "startColumn": 11
+                          }
+                        },
+                        "message": {
+                          "text": "sync.*Once.Do"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/sync/once.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 78,
+                            "startColumn": 4
+                          }
+                        },
+                        "message": {
+                          "text": "sync.*Once.doSlow"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/evictedqueue.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 58,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Event]"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Event]"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "db.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 520,
+                            "startColumn": 17
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*DB.Close"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/sync/once.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 69,
+                            "startColumn": 11
+                          }
+                        },
+                        "message": {
+                          "text": "sync.*Once.Do"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/sync/once.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 78,
+                            "startColumn": 4
+                          }
+                        },
+                        "message": {
+                          "text": "sync.*Once.doSlow"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/evictedqueue.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 58,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Link]"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Link]"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "levels.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 331,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 904,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.End"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.End"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "levels.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 326,
+                            "startColumn": 22
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 901,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SetAttributes"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SetAttributes"
+              }
+            },
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "levels.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 325,
+                            "startColumn": 36
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 149,
+                            "startColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/internal/global.*tracer.Start"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 184,
+                            "startColumn": 56
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/internal/global.*tracer.newSpan"
+                        }
+                      }
+                    },
+                    {
+                      "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                            "uriBaseId": "%GOMODCACHE%"
+                          },
+                          "region": {
+                            "startLine": 889,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SpanContext"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SpanContext"
+              }
+            }
+          ],
+          "stacks": [
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk.init"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "badger/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/badger.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 23,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/resource/builtin.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/resource.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/version.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 5,
+                        "startColumn": 1
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk.init"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/instrumentation.init"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "badger/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/badger.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 23,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 14,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/instrumentation/doc.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 13,
+                        "startColumn": 1
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/instrumentation.init"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/internal/env.init"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "badger/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/badger.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 23,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/batch_span_processor.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/internal/env/env.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 6,
+                        "startColumn": 1
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/internal/env.init"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/internal/x.init"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "badger/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/badger.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 23,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/resource/resource.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 14,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/resource.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/internal/x/x.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 8,
+                        "startColumn": 1
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/internal/x.init"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/resource.init"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "badger/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/badger.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 23,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/provider.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/resource/auto.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 4,
+                        "startColumn": 1
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/resource.init"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.*recordingSpan.End"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 1814,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.DropPrefix"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "levels.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 331,
+                        "startColumn": 13
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 446,
+                        "startColumn": 25
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.*recordingSpan.End"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SetAttributes"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 1814,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.DropPrefix"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "levels.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 326,
+                        "startColumn": 22
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 227,
+                        "startColumn": 25
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SetAttributes"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SpanContext"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 1814,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.DropPrefix"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "levels.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 325,
+                        "startColumn": 36
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 149,
+                        "startColumn": 18
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/internal/global.*tracer.Start"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 184,
+                        "startColumn": 56
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/internal/global.*tracer.newSpan"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/trace@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/trace@v1.37.0/context.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 49,
+                        "startColumn": 41
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/trace.SpanContextFromContext"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 161,
+                        "startColumn": 25
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.*recordingSpan.SpanContext"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.init"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "badger/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 15,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/badger.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/bucket.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 23,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.init"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/batch_span_processor.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 4,
+                        "startColumn": 1
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.init"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 520,
+                        "startColumn": 17
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.Close"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/sync/once.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 69,
+                        "startColumn": 11
+                      }
+                    },
+                    "message": {
+                      "text": "sync.*Once.Do"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/sync/once.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 78,
+                        "startColumn": 4
+                      }
+                    },
+                    "message": {
+                      "text": "sync.*Once.doSlow"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 267,
+                        "startColumn": 20
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.init"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Event]"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 520,
+                        "startColumn": 17
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.Close"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/sync/once.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 69,
+                        "startColumn": 11
+                      }
+                    },
+                    "message": {
+                      "text": "sync.*Once.Do"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/sync/once.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 78,
+                        "startColumn": 4
+                      }
+                    },
+                    "message": {
+                      "text": "sync.*Once.doSlow"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/evictedqueue.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 58,
+                        "startColumn": 23
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Event]"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Link]"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 520,
+                        "startColumn": 17
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.Close"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/sync/once.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 69,
+                        "startColumn": 11
+                      }
+                    },
+                    "message": {
+                      "text": "sync.*Once.Do"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/sync/once.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 78,
+                        "startColumn": 4
+                      }
+                    },
+                    "message": {
+                      "text": "sync.*Once.doSlow"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/evictedqueue.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 58,
+                        "startColumn": 23
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.logDropped[go.opentelemetry.io/otel/sdk/trace.Link]"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.End"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 1814,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.DropPrefix"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "levels.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 331,
+                        "startColumn": 13
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 904,
+                        "startColumn": 25
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.End"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SetAttributes"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 1814,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.DropPrefix"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "levels.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 326,
+                        "startColumn": 22
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 901,
+                        "startColumn": 25
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SetAttributes"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "message": {
+                "text": "A call stack for vulnerable function go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SpanContext"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "db.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 1814,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*DB.DropPrefix"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "levels.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 325,
+                        "startColumn": 36
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4.*levelsController.dropPrefixes"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 149,
+                        "startColumn": 18
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/internal/global.*tracer.Start"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel@v1.37.0/internal/global/trace.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 184,
+                        "startColumn": 56
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/internal/global.*tracer.newSpan"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/trace@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/trace@v1.37.0/context.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 49,
+                        "startColumn": 41
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/trace.SpanContextFromContext"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/otel/sdk@v1.37.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/otel/sdk@v1.37.0/trace/span.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 889,
+                        "startColumn": 27
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/otel/sdk/trace.nonRecordingSpan.SpanContext"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4918",
+          "level": "warning",
+          "message": {
+            "text": "Your code imports 1 vulnerable package (net/http), but doesn’t appear to call any of the vulnerable symbols."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4918"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4971",
+          "level": "error",
+          "message": {
+            "text": "Your code calls vulnerable functions in 1 package (net)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4971"
+              }
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "integration/testgc/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 118,
+                            "startColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/net/http/server.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 3675,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "net/http.ListenAndServe"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/net/http/server.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 3356,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "net/http.*Server.ListenAndServe"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/net/dial.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 966,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "net.Listen"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function net.Listen"
+              }
+            }
+          ],
+          "stacks": [
+            {
+              "message": {
+                "text": "A call stack for vulnerable function net.Listen"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "integration/testgc/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 117,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "integration/testgc/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 118,
+                        "startColumn": 26
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3675,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.ListenAndServe"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3356,
+                        "startColumn": 23
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*Server.ListenAndServe"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/dial.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 966,
+                        "startColumn": 6
+                      }
+                    },
+                    "message": {
+                      "text": "net.Listen"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4976",
+          "level": "note",
+          "message": {
+            "text": "Your code depends on 1 vulnerable module (stdlib), but doesn't appear to call any of the vulnerable symbols."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4976"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4977",
+          "level": "note",
+          "message": {
+            "text": "Your code depends on 1 vulnerable module (stdlib), but doesn't appear to call any of the vulnerable symbols."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4977"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4980",
+          "level": "error",
+          "message": {
+            "text": "Your code calls vulnerable functions in 1 package (html/template)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4980"
+              }
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "integration/testgc/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 118,
+                            "startColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/net/http/server.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 3675,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "net/http.ListenAndServe"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/net/http/server.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 3360,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "net/http.*Server.ListenAndServe"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/html/template/template.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 120,
+                            "startColumn": 20
+                          }
+                        },
+                        "message": {
+                          "text": "html/template.*Template.Execute"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function html/template.*Template.Execute"
+              }
+            }
+          ],
+          "stacks": [
+            {
+              "message": {
+                "text": "A call stack for vulnerable function html/template.*Template.Execute"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "integration/testgc/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 117,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "integration/testgc/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 118,
+                        "startColumn": 26
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3675,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.ListenAndServe"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3360,
+                        "startColumn": 16
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*Server.ListenAndServe"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3464,
+                        "startColumn": 3
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*Server.Serve"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 2073,
+                        "startColumn": 36
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*conn.serve"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3311,
+                        "startColumn": 19
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.serverHandler.ServeHTTP"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 2828,
+                        "startColumn": 13
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*ServeMux.ServeHTTP"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/tracez.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 90,
+                        "startColumn": 34
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.*tracezHandler.ServeHTTP"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/html/template/template.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 120,
+                        "startColumn": 20
+                      }
+                    },
+                    "message": {
+                      "text": "html/template.*Template.Execute"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4981",
+          "level": "warning",
+          "message": {
+            "text": "Your code imports 1 vulnerable package (net), but doesn’t appear to call any of the vulnerable symbols."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4981"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4982",
+          "level": "error",
+          "message": {
+            "text": "Your code calls vulnerable functions in 1 package (html/template)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4982"
+              }
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "module": "github.com/dgraph-io/badger/v4@",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "integration/testgc/main.go",
+                            "uriBaseId": "%SRCROOT%"
+                          },
+                          "region": {
+                            "startLine": 118,
+                            "startColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/net/http/server.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 3675,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "net/http.ListenAndServe"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/net/http/server.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 3360,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "net/http.*Server.ListenAndServe"
+                        }
+                      }
+                    },
+                    {
+                      "module": "stdlib@v1.26.2",
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "src/html/template/template.go",
+                            "uriBaseId": "%GOROOT%"
+                          },
+                          "region": {
+                            "startLine": 120,
+                            "startColumn": 20
+                          }
+                        },
+                        "message": {
+                          "text": "html/template.*Template.Execute"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "message": {
+                "text": "A summarized code flow for vulnerable function html/template.*Template.Execute"
+              }
+            }
+          ],
+          "stacks": [
+            {
+              "message": {
+                "text": "A call stack for vulnerable function html/template.*Template.Execute"
+              },
+              "frames": [
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "integration/testgc/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 117,
+                        "startColumn": 2
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                    }
+                  }
+                },
+                {
+                  "module": "github.com/dgraph-io/badger/v4@",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "integration/testgc/main.go",
+                        "uriBaseId": "%SRCROOT%"
+                      },
+                      "region": {
+                        "startLine": 118,
+                        "startColumn": 26
+                      }
+                    },
+                    "message": {
+                      "text": "github.com/dgraph-io/badger/v4/integration/testgc.main"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3675,
+                        "startColumn": 30
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.ListenAndServe"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3360,
+                        "startColumn": 16
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*Server.ListenAndServe"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3464,
+                        "startColumn": 3
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*Server.Serve"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 2073,
+                        "startColumn": 36
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*conn.serve"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 3311,
+                        "startColumn": 19
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.serverHandler.ServeHTTP"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/net/http/server.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 2828,
+                        "startColumn": 13
+                      }
+                    },
+                    "message": {
+                      "text": "net/http.*ServeMux.ServeHTTP"
+                    }
+                  }
+                },
+                {
+                  "module": "go.opentelemetry.io/contrib/zpages@v0.62.0",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "go.opentelemetry.io/contrib/zpages@v0.62.0/tracez.go",
+                        "uriBaseId": "%GOMODCACHE%"
+                      },
+                      "region": {
+                        "startLine": 90,
+                        "startColumn": 34
+                      }
+                    },
+                    "message": {
+                      "text": "go.opentelemetry.io/contrib/zpages.*tracezHandler.ServeHTTP"
+                    }
+                  }
+                },
+                {
+                  "module": "stdlib@v1.26.2",
+                  "location": {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "src/html/template/template.go",
+                        "uriBaseId": "%GOROOT%"
+                      },
+                      "region": {
+                        "startLine": 120,
+                        "startColumn": 20
+                      }
+                    },
+                    "message": {
+                      "text": "html/template.*Template.Execute"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4986",
+          "level": "note",
+          "message": {
+            "text": "Your code depends on 1 vulnerable module (stdlib), but doesn't appear to call any of the vulnerable symbols."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-4986"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-5024",
+          "level": "note",
+          "message": {
+            "text": "Your code depends on 1 vulnerable module (golang.org/x/sys), but doesn't appear to call any of the vulnerable symbols."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "go.mod",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "message": {
+                "text": "Findings for vulnerability GO-2026-5024"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

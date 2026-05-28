@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Langsec Golang Dependency Checker",
+          "informationUri": "https://github.com/DanielN77/Langsec-Golang-Dependency-Checker",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "CAPABILITY_ANALYSIS",
+              "name": "Capability Analysis",
+              "shortDescription": {
+                "text": "Capability analysis result"
+              },
+              "properties": {
+                "tags": [
+                  "capability",
+                  "analysis"
+                ]
+              }
+            },
+            {
+              "id": "STRING_ANALYSIS",
+              "name": "String analysis",
+              "shortDescription": {
+                "text": "Decoded suspicious string"
+              },
+              "properties": {
+                "tags": [
+                  "string-analysis",
+                  "obfuscation"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/bill.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'math/rand' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "math/rand",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/bill.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/bill.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/bill.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/modify.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/order.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/order.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/main.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/menu.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/menu.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/greet.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='Email: jaipur.bhojanalaya@gmail.com', Decoded='Email: jaipur.bhojanalaya@gmail.com', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "Email: jaipur.bhojanalaya@gmail.com",
+            "decoded": "Email: jaipur.bhojanalaya@gmail.com",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/bill.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='Please enter the S.No. of the item to be updated: ', Decoded='Please enter the S.No. of the item to be updated: ', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "Please enter the S.No. of the item to be updated: ",
+            "decoded": "Please enter the S.No. of the item to be updated: ",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/modify.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='Please enter the S.No. of the item to be deleted: ', Decoded='Please enter the S.No. of the item to be deleted: ', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "Please enter the S.No. of the item to be deleted: ",
+            "decoded": "Please enter the S.No. of the item to be deleted: ",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/modify.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='S.No.', Decoded='S.No.', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "S.No.",
+            "decoded": "S.No.",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/Order-Food/menu.go"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

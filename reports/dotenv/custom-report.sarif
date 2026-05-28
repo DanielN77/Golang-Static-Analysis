@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Langsec Golang Dependency Checker",
+          "informationUri": "https://github.com/DanielN77/Langsec-Golang-Dependency-Checker",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "CAPABILITY_ANALYSIS",
+              "name": "Capability Analysis",
+              "shortDescription": {
+                "text": "Capability analysis result"
+              },
+              "properties": {
+                "tags": [
+                  "capability",
+                  "analysis"
+                ]
+              }
+            },
+            {
+              "id": "STRING_ANALYSIS",
+              "name": "String analysis",
+              "shortDescription": {
+                "text": "Decoded suspicious string"
+              },
+              "properties": {
+                "tags": [
+                  "string-analysis",
+                  "obfuscation"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'path/filepath' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "path/filepath",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_OPERATING_SYSTEM",
+          "message": {
+            "text": "Package 'os' has capability 'CAPABILITY_OPERATING_SYSTEM'"
+          },
+          "export": {
+            "package_name": "os",
+            "capability": "CAPABILITY_OPERATING_SYSTEM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'errors' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "errors",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'bufio' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "bufio",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'path/filepath' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "path/filepath",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_OPERATING_SYSTEM",
+          "message": {
+            "text": "Package 'os' has capability 'CAPABILITY_OPERATING_SYSTEM'"
+          },
+          "export": {
+            "package_name": "os",
+            "capability": "CAPABILITY_OPERATING_SYSTEM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/example/program.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'log' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "log",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/example/program.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/jaavier/dotenv' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/jaavier/dotenv",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/example/program.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='/non/existent/file.env', Decoded='/non/existent/file.env', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "/non/existent/file.env",
+            "decoded": "/non/existent/file.env",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='/non/existent/file.env', Decoded='/non/existent/file.env', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "/non/existent/file.env",
+            "decoded": "/non/existent/file.env",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='WITH.DOT', Decoded='WITH.DOT', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "WITH.DOT",
+            "decoded": "WITH.DOT",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/dotenv_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='config/.env.production', Decoded='config/.env.production', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "config/.env.production",
+            "decoded": "config/.env.production",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/dotenv/example/program.go"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

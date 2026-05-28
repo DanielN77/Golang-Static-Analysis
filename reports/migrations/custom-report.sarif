@@ -1,0 +1,1721 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Langsec Golang Dependency Checker",
+          "informationUri": "https://github.com/DanielN77/Langsec-Golang-Dependency-Checker",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "GO-2025-3764",
+              "name": "GO-2025-3764",
+              "shortDescription": {
+                "text": "Known vulnerability in github.com/go-pg/pg/v10"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "GO-2021-0113",
+              "name": "GO-2021-0113",
+              "shortDescription": {
+                "text": "Known vulnerability in golang.org/x/text"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "GO-2022-1059",
+              "name": "GO-2022-1059",
+              "shortDescription": {
+                "text": "Known vulnerability in golang.org/x/text"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "GO-2023-2153",
+              "name": "GO-2023-2153",
+              "shortDescription": {
+                "text": "Known vulnerability in google.golang.org/grpc"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "GO-2026-4762",
+              "name": "GO-2026-4762",
+              "shortDescription": {
+                "text": "Known vulnerability in google.golang.org/grpc"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "GO-2024-2611",
+              "name": "GO-2024-2611",
+              "shortDescription": {
+                "text": "Known vulnerability in google.golang.org/protobuf"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "GO-2022-0603",
+              "name": "GO-2022-0603",
+              "shortDescription": {
+                "text": "Known vulnerability in gopkg.in/yaml.v3"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "GO-2023-1268",
+              "name": "GO-2023-1268",
+              "shortDescription": {
+                "text": "Known vulnerability in mellium.im/sasl"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "cve"
+                ]
+              }
+            },
+            {
+              "id": "CAPABILITY_ANALYSIS",
+              "name": "Capability Analysis",
+              "shortDescription": {
+                "text": "Capability analysis result"
+              },
+              "properties": {
+                "tags": [
+                  "capability",
+                  "analysis"
+                ]
+              }
+            },
+            {
+              "id": "STRING_ANALYSIS",
+              "name": "String analysis",
+              "shortDescription": {
+                "text": "Decoded suspicious string"
+              },
+              "properties": {
+                "tags": [
+                  "string-analysis",
+                  "obfuscation"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "GO-2025-3764",
+          "level": "error",
+          "message": {
+            "text": "Module github.com/go-pg/pg/v10@v10.4.0 is affected by GO-2025-3764. Aliases: CVE-2024-44905,GHSA-6xp3-p59p-q4fj"
+          },
+          "export": {
+            "module_name": "github.com/go-pg/pg/v10",
+            "version": "v10.4.0",
+            "rule_id": "GO-2025-3764",
+            "aliases": "CVE-2024-44905,GHSA-6xp3-p59p-q4fj"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "github.com/go-pg/pg/v10"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2021-0113",
+          "level": "error",
+          "message": {
+            "text": "Module golang.org/x/text@v0.3.3 is affected by GO-2021-0113. Aliases: CVE-2021-38561,GHSA-ppp9-7jff-5vj2"
+          },
+          "export": {
+            "module_name": "golang.org/x/text",
+            "version": "v0.3.3",
+            "rule_id": "GO-2021-0113",
+            "aliases": "CVE-2021-38561,GHSA-ppp9-7jff-5vj2"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "golang.org/x/text"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2022-1059",
+          "level": "error",
+          "message": {
+            "text": "Module golang.org/x/text@v0.3.3 is affected by GO-2022-1059. Aliases: CVE-2022-32149,GHSA-69ch-w2m2-3vjp"
+          },
+          "export": {
+            "module_name": "golang.org/x/text",
+            "version": "v0.3.3",
+            "rule_id": "GO-2022-1059",
+            "aliases": "CVE-2022-32149,GHSA-69ch-w2m2-3vjp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "golang.org/x/text"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2023-2153",
+          "level": "error",
+          "message": {
+            "text": "Module google.golang.org/grpc@v1.27.0 is affected by GO-2023-2153. Aliases: GHSA-m425-mq94-257g"
+          },
+          "export": {
+            "module_name": "google.golang.org/grpc",
+            "version": "v1.27.0",
+            "rule_id": "GO-2023-2153",
+            "aliases": "GHSA-m425-mq94-257g"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "google.golang.org/grpc"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2026-4762",
+          "level": "error",
+          "message": {
+            "text": "Module google.golang.org/grpc@v1.27.0 is affected by GO-2026-4762. Aliases: CVE-2026-33186,GHSA-p77j-4mvh-x3m3"
+          },
+          "export": {
+            "module_name": "google.golang.org/grpc",
+            "version": "v1.27.0",
+            "rule_id": "GO-2026-4762",
+            "aliases": "CVE-2026-33186,GHSA-p77j-4mvh-x3m3"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "google.golang.org/grpc"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2024-2611",
+          "level": "error",
+          "message": {
+            "text": "Module google.golang.org/protobuf@v1.25.0 is affected by GO-2024-2611. Aliases: CVE-2024-24786,GHSA-8r3f-844c-mc37"
+          },
+          "export": {
+            "module_name": "google.golang.org/protobuf",
+            "version": "v1.25.0",
+            "rule_id": "GO-2024-2611",
+            "aliases": "CVE-2024-24786,GHSA-8r3f-844c-mc37"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "google.golang.org/protobuf"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2022-0603",
+          "level": "error",
+          "message": {
+            "text": "Module gopkg.in/yaml.v3@v3.0.0-20200313102051-9f266ea9e77c is affected by GO-2022-0603. Aliases: CVE-2022-28948,GHSA-hp87-p4gw-j4gq"
+          },
+          "export": {
+            "module_name": "gopkg.in/yaml.v3",
+            "version": "v3.0.0-20200313102051-9f266ea9e77c",
+            "rule_id": "GO-2022-0603",
+            "aliases": "CVE-2022-28948,GHSA-hp87-p4gw-j4gq"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "gopkg.in/yaml.v3"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GO-2023-1268",
+          "level": "error",
+          "message": {
+            "text": "Module mellium.im/sasl@v0.2.1 is affected by GO-2023-1268. Aliases: CVE-2022-48195,GHSA-gvfj-fxx3-j323"
+          },
+          "export": {
+            "module_name": "mellium.im/sasl",
+            "version": "v0.2.1",
+            "rule_id": "GO-2023-1268",
+            "aliases": "CVE-2022-48195,GHSA-gvfj-fxx3-j323"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mellium.im/sasl"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/db_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/pg/v10' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/pg/v10",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/db_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/db_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/migrations/v8' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/migrations/v8",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/db_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/embed_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'embed' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "embed",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/embed_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_NETWORK",
+          "message": {
+            "text": "Package 'net/http' has capability 'CAPABILITY_NETWORK'"
+          },
+          "export": {
+            "package_name": "net/http",
+            "capability": "CAPABILITY_NETWORK"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/embed_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strconv' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strconv",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_OPERATING_SYSTEM",
+          "message": {
+            "text": "Package 'os' has capability 'CAPABILITY_OPERATING_SYSTEM'"
+          },
+          "export": {
+            "package_name": "os",
+            "capability": "CAPABILITY_OPERATING_SYSTEM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'io/ioutil' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "io/ioutil",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_NETWORK",
+          "message": {
+            "text": "Package 'net/http' has capability 'CAPABILITY_NETWORK'"
+          },
+          "export": {
+            "package_name": "net/http",
+            "capability": "CAPABILITY_NETWORK"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'strings' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "strings",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'errors' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "errors",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'sync' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "sync",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'bufio' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "bufio",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'regexp' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "regexp",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'math' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "math",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'path/filepath' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "path/filepath",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_RUNTIME",
+          "message": {
+            "text": "Package 'runtime' has capability 'CAPABILITY_RUNTIME'"
+          },
+          "export": {
+            "package_name": "runtime",
+            "capability": "CAPABILITY_RUNTIME"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/pg/v10' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/pg/v10",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/migrations' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/migrations",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'bytes' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "bytes",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'sort' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "sort",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'path' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "path",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'io' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "io",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/migrations.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/pg/v10' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/pg/v10",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/migrations.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/pg/v10/orm' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/pg/v10/orm",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/migrations.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'context' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "context",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/migrations.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_OPERATING_SYSTEM",
+          "message": {
+            "text": "Package 'os' has capability 'CAPABILITY_OPERATING_SYSTEM'"
+          },
+          "export": {
+            "package_name": "os",
+            "capability": "CAPABILITY_OPERATING_SYSTEM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'io/ioutil' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "io/ioutil",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_NETWORK",
+          "message": {
+            "text": "Package 'net/http' has capability 'CAPABILITY_NETWORK'"
+          },
+          "export": {
+            "package_name": "net/http",
+            "capability": "CAPABILITY_NETWORK"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'compress/gzip' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "compress/gzip",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'time' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "time",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'testing' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "testing",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'io' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "io",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'bytes' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "bytes",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'path' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "path",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/2_add_id.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/migrations/v8' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/migrations/v8",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/2_add_id.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/1_initial.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/migrations/v8' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/migrations/v8",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/1_initial.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/3_seed_data.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/migrations/v8' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/migrations/v8",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/3_seed_data.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'flag' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "flag",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/main.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_OPERATING_SYSTEM",
+          "message": {
+            "text": "Package 'os' has capability 'CAPABILITY_OPERATING_SYSTEM'"
+          },
+          "export": {
+            "package_name": "os",
+            "capability": "CAPABILITY_OPERATING_SYSTEM"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/main.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/migrations/v8' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/migrations/v8",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/main.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_SAFE",
+          "message": {
+            "text": "Package 'fmt' has capability 'CAPABILITY_SAFE'"
+          },
+          "export": {
+            "package_name": "fmt",
+            "capability": "CAPABILITY_SAFE"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/main.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CAPABILITY_ANALYSIS",
+          "level": "CAPABILITY_UNSPECIFIED",
+          "message": {
+            "text": "Package 'github.com/go-pg/pg/v10' has capability 'CAPABILITY_UNSPECIFIED'"
+          },
+          "export": {
+            "package_name": "github.com/go-pg/pg/v10",
+            "capability": "CAPABILITY_UNSPECIFIED"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/example/main.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='1_initialize_db.go', Decoded='1_initialize_db.go', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "1_initialize_db.go",
+            "decoded": "1_initialize_db.go",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='.up.sql', Decoded='.up.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": ".up.sql",
+            "decoded": ".up.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='.tx.up.sql', Decoded='.tx.up.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": ".tx.up.sql",
+            "decoded": ".tx.up.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='.down.sql', Decoded='.down.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": ".down.sql",
+            "decoded": ".down.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='.tx.down.sql', Decoded='.tx.down.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": ".tx.down.sql",
+            "decoded": ".tx.down.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='file=%q must have extension .up.sql or .down.sql', Decoded='file=%q must have extension .up.sql or .down.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "file=%q must have extension .up.sql or .down.sql",
+            "decoded": "file=%q must have extension .up.sql or .down.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='information_schema.schemata', Decoded='information_schema.schemata', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "information_schema.schemata",
+            "decoded": "information_schema.schemata",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='%d_%s.go', Decoded='%d_%s.go', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "%d_%s.go",
+            "decoded": "%d_%s.go",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='package main\n\n\n\nfunc init() {\n\tmigrations.MustRegisterTx(func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t}, func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t})\n}\n', Decoded='package main\n\n\n\nfunc init() {\n\tmigrations.MustRegisterTx(func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t}, func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t})\n}\n', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "package main\n\n\n\nfunc init() {\n\tmigrations.MustRegisterTx(func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t}, func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t})\n}\n",
+            "decoded": "package main\n\n\n\nfunc init() {\n\tmigrations.MustRegisterTx(func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t}, func(db migrations.DB) error {\n\t\t_, err := db.Exec(\"\")\n\t\treturn err\n\t})\n}\n",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/collection.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='/01_initial.down.sql', Decoded='/01_initial.down.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "/01_initial.down.sql",
+            "decoded": "/01_initial.down.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='01_initial.down.sql', Decoded='01_initial.down.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "01_initial.down.sql",
+            "decoded": "01_initial.down.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='\\x44\\x52\\x4f\\x50\\x20\\x54\\x41\\x42\\x4c\\x45\\x20\\x63\\x6f\\x6e\\x74\\x65\\x6e\\x74\\x74\\x68\\x65\\x6d\\x65\\x73\\x2e\\x73\\x74\\x61\\x74\\x75\\x73\\x0a', Decoded='DROP TABLE contentthemes.status\n', DecodePath='hex'"
+          },
+          "export": {
+            "matches": "url",
+            "original": "\\x44\\x52\\x4f\\x50\\x20\\x54\\x41\\x42\\x4c\\x45\\x20\\x63\\x6f\\x6e\\x74\\x65\\x6e\\x74\\x74\\x68\\x65\\x6d\\x65\\x73\\x2e\\x73\\x74\\x61\\x74\\x75\\x73\\x0a",
+            "decoded": "DROP TABLE contentthemes.status\n",
+            "path": "hex"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='/01_initial.up.sql', Decoded='/01_initial.up.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "/01_initial.up.sql",
+            "decoded": "/01_initial.up.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='01_initial.up.sql', Decoded='01_initial.up.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "01_initial.up.sql",
+            "decoded": "01_initial.up.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='/01_initial.down.sql', Decoded='/01_initial.down.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "/01_initial.down.sql",
+            "decoded": "/01_initial.down.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='/01_initial.up.sql', Decoded='/01_initial.up.sql', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "/01_initial.up.sql",
+            "decoded": "/01_initial.up.sql",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='[]byte {\n\treturn f.compressedContent\n}', Decoded='[]byte {\n\treturn f.compressedContent\n}', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "[]byte {\n\treturn f.compressedContent\n}",
+            "decoded": "[]byte {\n\treturn f.compressedContent\n}",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/vfs_test.go"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "STRING_ANALYSIS",
+          "level": "note",
+          "message": {
+            "text": "Decoded string matched patterns [url]. Original='1_initialize_db.go', Decoded='1_initialize_db.go', DecodePath=''"
+          },
+          "export": {
+            "matches": "url",
+            "original": "1_initialize_db.go",
+            "decoded": "1_initialize_db.go",
+            "path": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/dnorma/DD2525/Project/Langsec-Golang-Dependency-Checker/src/analysis_projects/migrations/default.go"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
