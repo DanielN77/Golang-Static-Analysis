@@ -13,28 +13,20 @@ def load_json(path: str):
 def parse_custom_sarif(path: str):
     data = load_json(path)
     if not data:
-        return {"cves": [], "capabilities": [], "string_findings": 0}
+        return {"cve_count": 0, "cves": [], "capabilities": [], "string_findings": 0, "decodings": []}
     runs = data.get("runs", [])
     if not runs:
-        return {"cves": [], "capabilities": [], "string_findings": 0}
+        return {"cve_count": 0, "cves": [], "capabilities": [], "string_findings": 0, "decoding": []}
 
     run = runs[0]
 
-    # Collect rule ids that are CVE/security rules by looking at rule properties/tags
-    rules = run.get("tool", {}).get("driver", {}).get("rules", []) or []
-    cve_rule_ids = set()
-    for rule in rules:
-        props = rule.get("properties", {}) or {}
-        tags = [t.lower() for t in props.get("tags", [])]
-        if any("cve" in t or "security" in t for t in tags):
-            if rule.get("id"):
-                cve_rule_ids.add(rule.get("id"))
-
     results = run.get("results", []) or []
-    found_cves = set()
+    found_cves = []
     capability_packages = []
     found_capabilities = []
+    decodings = []
     string_findings = 0
+    cve_amount = 0
 
     for res in results:
         rid = res.get("ruleId")
@@ -47,14 +39,21 @@ def parse_custom_sarif(path: str):
                 found_capabilities.append(pkg)
                 capability_packages.append(f"{pkg} : {level}")
         elif rid == "STRING_ANALYSIS":
+            export = res.get("export", {}) or {}
+            decode_path = export.get("path")
+            if decode_path:
+                decodings.append(decode_path)
             string_findings += 1
-        elif rid and rid in cve_rule_ids and rid not in found_cves:
-            found_cves.add(rid)
+        elif rid and rid and rid not in found_cves:
+            cve_amount += 1
+            found_cves.append(rid)
 
     return {
+        "cve_count": cve_amount,
         "cves": list(found_cves),
         "capabilities": capability_packages,
         "string_findings": string_findings,
+        "decodings" : decodings
     }
 
 def parse_govuln_sarif(path: str):
@@ -96,7 +95,7 @@ def process_reports_dir(reports_dir: str) -> int:
         if os.path.exists(custom_path):
             custom = parse_custom_sarif(custom_path)
         else:
-            custom = {"cves": [], "capabilities": [], "string_findings": 0}
+            custom = {"cve_count": 0, "cves": [], "capabilities": [], "string_findings": 0}
 
         if os.path.exists(gov_path):
             gov = parse_govuln_sarif(gov_path)
