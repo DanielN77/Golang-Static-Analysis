@@ -153,6 +153,6 @@ def create_sarif_report(cves, capabilities, string_analysis):
     return sarif
 
 def save_sarif_report(report, output_file="report.sarif"):
-    with open(output_file, "w", encoding="utf-8") as f:
+    with open(output_file, "w") as f:
         json.dump(report, f, indent=2)
     print(f"SARIF report saved to: {output_file}")

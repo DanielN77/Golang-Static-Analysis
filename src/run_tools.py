@@ -14,7 +14,6 @@ PROJECTS = [
     "https://github.com/uber-go/goleak.git",
     "https://github.com/go-gorm/gorm.git",
     "https://github.com/spf13/viper.git",
-    "https://github.com/droxey/goslackit.git",
     "https://github.com/Prince-1501/url-shortner.git",
     "https://github.com/jaavier/dotenv.git",
     "https://github.com/cjbearman/sim6502.git",
@@ -121,7 +120,6 @@ def main():
         except Exception as e:
             print(f"\nERROR! Failed processing {repo_url}")
             print(e)
-
 
 if __name__ == "__main__":
     main()
