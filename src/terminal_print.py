@@ -52,8 +52,7 @@ def print_cves(package_cves):
 
 def print_capabilities(package_capabilities, project_root=os.getcwd()):
     table = Table(title="Package Capability Analysis", box=box.ROUNDED)
-    table.add_column("File", style="cyan")
-    table.add_column("Package", style="bold")
+    table.add_column("Package", style="cyan")
     table.add_column("Capabilities", style="magenta")
     
     danger_levels = {
@@ -65,7 +64,6 @@ def print_capabilities(package_capabilities, project_root=os.getcwd()):
 
         "CAPABILITY_FILES": "yellow",
         "CAPABILITY_RUNTIME": "yellow",
-        "CAPABILITY_REFLECT": "yellow",
         "CAPABILITY_CGO": "yellow",
         "CAPABILITY_UNSAFE_POINTER": "yellow",
         
@@ -74,19 +72,17 @@ def print_capabilities(package_capabilities, project_root=os.getcwd()):
         "CAPABILITY_OPERATING_SYSTEM": "orange1",
         "CAPABILITY_SYSTEM_CALLS": "orange1",
         
+        "CAPABILITY_REFLECT": "red",
         "CAPABILITY_EXEC": "red",
         "CAPABILITY_ARBITRARY_EXECUTION": "red",
     }
     
-    for file_path, capabilities in package_capabilities:
-        display_path = shorten_path(file_path, project_root)
-        for package, capability in capabilities:
-            color = danger_levels.get(capability, "white")
-            table.add_row(
-                display_path,
-                package,
-                f"[{color}]{capability}[/{color}]"
-            )
+    for package, capability in package_capabilities:
+        color = danger_levels.get(capability, "white")
+        table.add_row(
+            package,
+            f"[{color}]{capability}[/{color}]"
+        )
     
     console.print(table)
 
