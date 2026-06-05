@@ -31,16 +31,16 @@ def parse_custom_sarif(path: str):
     for res in results:
         rid = res.get("ruleId")
         if rid == "CAPABILITY_ANALYSIS":
-            level = res.get("level")
-            if level == "CAPABILITY_SAFE" or level == "CAPABILITY_UNSPECIFIED": continue
-            export = res.get("export", {}) or {}
-            pkg = export.get("package_name")
+            properties = res.get("properties", {}) or {}
+            type = properties.get("capability")
+            if type == "CAPABILITY_SAFE" or type == "CAPABILITY_UNSPECIFIED": continue
+            pkg = properties.get("package_name")
             if pkg and pkg not in found_capabilities:
                 found_capabilities.append(pkg)
-                capability_packages.append(f"{pkg} : {level}")
+                capability_packages.append(f"{pkg} : {type}")
         elif rid == "STRING_ANALYSIS":
-            export = res.get("export", {}) or {}
-            decode_path = export.get("path")
+            properties = res.get("properties", {}) or {}
+            decode_path = properties.get("path")
             if decode_path:
                 decodings.append(decode_path)
             string_findings += 1

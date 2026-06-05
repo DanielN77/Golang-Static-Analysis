@@ -9,7 +9,7 @@ def create_sarif_report(cves, capabilities, string_analysis):
                 "tool": {
                     "driver": {
                         "name": "Langsec Golang Dependency Checker",
-                        "informationUri": "https://github.com/DanielN77/Langsec-Golang-Dependency-Checker",
+                        "informationUri": "https://github.com/DanielN77/Golang-Static-Analysis",
                         "version": "1.0.0",
                         "rules": []
                     }
@@ -47,7 +47,7 @@ def create_sarif_report(cves, capabilities, string_analysis):
                 "message": {
                     "text": f"Module {module_name}@{version} is affected by {rule_id}. Aliases: {aliases}"
                 },
-                "export": {
+                "properties":{
                     "module_name": module_name,
                     "version": version,
                     "rule_id": rule_id,
@@ -79,28 +79,18 @@ def create_sarif_report(cves, capabilities, string_analysis):
             }
         }
 
-    for file_path, capability_entries in capabilities:
-        for package_name, capability in capability_entries:
-            results.append({
-                "ruleId": "CAPABILITY_ANALYSIS",
-                "level": capability,
-                "message": {
-                    "text": f"Package '{package_name}' has capability '{capability}'"
-                },
-                "export": {
-                    "package_name": package_name,
-                    "capability": capability,
-                },
-                "locations": [
-                    {
-                        "physicalLocation": {
-                            "artifactLocation": {
-                                "uri": file_path
-                            }
-                        }
-                    }
-                ]
-            })
+    for package_name, capability in capabilities:
+        results.append({
+            "ruleId": "CAPABILITY_ANALYSIS",
+            "level": "warning",
+            "message": {
+                "text": f"Package '{package_name}' has capability '{capability}'"
+            },
+            "properties":{
+                "package_name": package_name,
+                "capability": capability,
+            }
+        })
 
     # String analasis results 
 
@@ -130,7 +120,7 @@ def create_sarif_report(cves, capabilities, string_analysis):
                 "message": {
                     "text": f"Decoded string matched patterns [{matches}]. Original='{original}', Decoded='{decoded}', DecodePath='{path}'"
                 },
-                "export": {
+                "properties":{
                     "matches": matches,
                     "original": original,
                     "decoded": decoded,

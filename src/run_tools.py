@@ -28,10 +28,8 @@ PROJECTS = [
     "https://github.com/lazydiv/LazyLang-compiler.git",
     "https://github.com/unrolled/secure.git",
     "https://github.com/cossacklabs/themis.git",
-    "https://github.com/cosmos/interchain-security.git",
     "https://github.com/ossf/security-baseline.git",
     "https://github.com/bndw/security-camera.git",
-    "https://github.com/kubewarden/sbomscanner.git",
     "https://github.com/girste/CHIHUAUDIT.git",
     "https://github.com/SAP/cloud-security-client-go.git",
     "https://github.com/noranaron/product_security_challenge.git",
@@ -89,7 +87,7 @@ def run_analysis(repo_name, project_path):
     ])
 
     if analyzer_result != 0:
-        print(f"\nSKIPPING! Analyzer failed for {repo_name}\n")
+        print(f"\nSKIPPING! Custom analyzer failed for {repo_name}\n")
 
         if os.path.exists(project_path):
             shutil.rmtree(project_path)

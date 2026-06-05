@@ -38,32 +38,14 @@ def get_cves(dependencies: dict) -> list:
     
     return cves
 
-def get_package_capabilities(golang_files: list) -> dict:
+def get_package_capabilities(dependencies: dict) -> dict:
     capabilities = []
-
-    for golang_file in golang_files:
-        with open(golang_file, 'r') as file:
-            content = file.read()
-        
-        # Add all types of imports to packages
-        packages = set()
-        single_imports = re.findall(r'^import\s+"([^"]+)"', content, re.MULTILINE)
-        packages.update(single_imports)
-        block_imports = re.findall(r'import\s*\(\s*(.*?)\s*\)', content, re.DOTALL)
-        for block_import in block_imports:
-            imps = re.findall(r'"([^"]+)"', block_import)
-            for imp in imps:
-                if not imp.startswith('//'):
-                    packages.add(imp)
-
-        package_capabilities = []
-        for package in packages:
-            package_capability = get_package_capability(package)
-            if (package, package_capability) in package_capabilities: continue
-
-            package_capabilities.append((package,package_capability))
-        
-        capabilities.append((golang_file, package_capabilities))
+    packages = []
+    for dependency in dependencies:
+        package_name = dependency[PACKAGE_NAME]
+        if not package_name in packages: 
+            capabilities.append((package_name, get_package_capability(package_name)))
+            packages.append(package_name)
 
     return capabilities
 
@@ -111,7 +93,7 @@ def main(path='.'):
     package_cves = get_cves(dependencies)
 
     # Returns [(package_name, capability)]
-    package_capabilities = get_package_capabilities(golang_files)
+    package_capabilities = get_package_capabilities(dependencies)
 
     # Returns [(go file path, string analysis)]
     string_analysis = get_string_analysis(golang_files)
