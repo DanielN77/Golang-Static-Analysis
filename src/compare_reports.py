@@ -33,7 +33,7 @@ def parse_custom_sarif(path: str):
         if rid == "CAPABILITY_ANALYSIS":
             properties = res.get("properties", {}) or {}
             type = properties.get("capability")
-            if type == "CAPABILITY_SAFE" or type == "CAPABILITY_UNSPECIFIED": continue
+            # if type == "CAPABILITY_SAFE" or type == "CAPABILITY_UNSPECIFIED": continue
             pkg = properties.get("package_name")
             if pkg and pkg not in found_capabilities:
                 found_capabilities.append(pkg)
