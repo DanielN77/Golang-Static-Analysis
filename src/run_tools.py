@@ -25,17 +25,11 @@ PROJECTS = [
     "https://github.com/sqlc-dev/sqlc.git",
     "https://github.com/jmoiron/sqlx.git",
     "https://github.com/andreimerlescu/entpassgen.git",
-    "https://github.com/lazydiv/LazyLang-compiler.git",
     "https://github.com/unrolled/secure.git",
-    "https://github.com/cossacklabs/themis.git",
-    "https://github.com/ossf/security-baseline.git",
-    "https://github.com/bndw/security-camera.git",
     "https://github.com/girste/CHIHUAUDIT.git",
     "https://github.com/SAP/cloud-security-client-go.git",
-    "https://github.com/noranaron/product_security_challenge.git",
     "https://github.com/TheHackerDev/damn-vulnerable-golang.git",
     "https://github.com/purnaresa/bulwark.git",
-    "https://github.com/tanc7/EXOCET-AV-Evasion.git"
 ]
 
 BASE_DIR = "analysis_projects"
